@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>Selectors</title>
+    <script>
+      // Selectors
+      $(document).ready(function () {
+        $("#l").click(function () {
+          $("#J:first").hide();
+        });
+      });
+
+      // Commonly Used jQuery Event Methods
+      $(document).ready(function () {
+        $(".click").click(function () {
+          $(this).hide();
+        });
+      });
+
+      //   dblclick()
+      $(document).ready(function () {
+        $(".ok").dblclick(function () {
+          $(this).hide();
+        });
+      });
+
+      //   mouseenter()
+      $(document).ready(function () {
+        $("#p1").mouseenter(function () {
+          alert("You entered p1!");
+        });
+      });
+
+      //   mouseleave()
+      $(document).ready(function () {
+        $("#p2").mouseleave(function () {
+          alert("Bye! You now leave p1!");
+        });
+      });
+
+      // hover()
+      $(document).ready(function () {
+        $("#p3").hover(
+          function () {
+            alert("You entered p3!");
+          },
+          function () {
+            alert("Bye! You now leave p3!");
+          }
+        );
+      });
+
+      // focus()
+      $(document).ready(function () {
+        $("input").focus(function () {
+          $(this).css("background-color", "yellow");
+        });
+        $("input").blur(function () {
+          $(this).css("background-color", "green");
+        });
+      });
+
+      // blur()
+      $(document).ready(function () {
+        $(".laso").focus(function () {
+          $(this).css("background-color", "pink");
+        });
+        $(".laso").blur(function () {
+          $(this).css("background-color", "blue");
+        });
+      });
+
+      // The on() Method
+      $(document).ready(function () {
+        $(".la").on("click", function () {
+          $(this).hide();
+        });
+      });
+
+      // jQuery hide() and show()
+      $(document).ready(function () {
+        $("#hide").click(function () {
+          $("#mm").hide();
+        });
+        $("#show").click(function () {
+          $("#mm").show();
+        });
+      });
+
+      // jQuery toggle()
+      $(document).ready(function () {
+        $("#jj").click(function () {
+          $(".laso1").toggle();
+        });
+      });
+
+      // jQuery fadeIn() Method
+      $(document).ready(function () {
+        $("#a").click(function () {
+          $("#div1").fadeIn();
+          $("#div2").fadeIn("slow");
+          $("#div3").fadeIn(3000);
+        });
+      });
+
+      // jQuery fadeOut() Method
+      $(document).ready(function () {
+        $("#b").click(function () {
+          $("#ok").fadeOut();
+          $("#ook").fadeOut("slow");
+          $("#oook").fadeOut(3000);
+        });
+      });
+
+      // jQuery fadeToggle() Method
+      $(document).ready(function () {
+        $("#c").click(function () {
+          $("#laaaa").fadeToggle();
+          $("#laa").fadeToggle("slow");
+          $("#laaa").fadeToggle(3000);
+        });
+      });
+
+      // jQuery fadeTo() Method
+      $(document).ready(function () {
+        $("#d").click(function () {
+          $("#123").fadeTo("slow", 0.15);
+          $("#1234").fadeTo("slow", 0.4);
+          $("#12345").fadeTo("slow", 0.7);
+        });
+      });
+
+      // jQuery slideDown() Method
+      $(document).ready(function () {
+        $("#flip1").click(function () {
+          $("#panel1").slideDown("slow");
+        });
+      });
+
+      //   jQuery slideUp() Method
+      $(document).ready(function () {
+        $("#las11").click(function () {
+          $("#laso11").slideUp("slow");
+        });
+      });
+
+      //   jQuery slideToggle() Method
+      $(document).ready(function () {
+        $("#yes").click(function () {
+          $("#no").slideToggle("slow");
+        });
+      });
+
+       // Stop Animations
+      // jQuery stop() Method
+      $(document).ready(function () {
+        $("#flip0").click(function () {
+          $("#panel0").slideDown(5000);
+        });
+        $("#stop0").click(function () {
+          $("#panel0").stop();
+        });
+      });
+
+ // Callback Functions
+ $(document).ready(function () {
+        $("#f").click(function () {
+          $("#p0").hide("slow", function () {
+            alert("The paragraph is now hidden");
+          });
+        });
+      });
+
+        // Chaining
+        $(document).ready(function () {
+        $("#button8").click(function () {
+          $("#p18").css("color", "red").slideUp(2000).slideDown(2000);
+        });
+      });
+
+    // Get Content - text(), html(), and val()
+    $(document).ready(function () {
+        $("#btn13").click(function () {
+          alert("Text: " + $("#test3").text());
+        });
+        $("#btn23").click(function () {
+          alert("HTML: " + $("#test3").html());
+        });
+      });
+
+      //   val()
+      $(document).ready(function () {
+        $("#press3").click(function () {
+          alert("Value: " + $("#test13").val());
+        });
+      });
+
+      //   Get Attributes - attr()
+      $(document).ready(function () {
+        $("#pub3").click(function () {
+          alert($("#w3s").attr("href"));
+        });
+      });
+
+      // Set Content - text(), html(), and val()
+      $(document).ready(function () {
+        $("#btn17").click(function () {
+          $("#test17").text("Kuzu Zangpo!");
+        });
+        $("#btn27").click(function () {
+          $("#test27").html("<b>Trashi delek!</b>");
+        });
+        $("#btn37").click(function () {
+          $("#test37").val("Yangsel");
+        });
+      });
+
+      //   A Callback Function for text(), html(), and val()
+      $(document).ready(function () {
+        $("#btn47").click(function () {
+          $("#test47").text(function (i, origText) {
+            return "Old text: " + origText + " New text: Hello world!";
+          });
+        });
+
+        $("#btn57").click(function () {
+          $("#test57").html(function (i, origText) {
+            return (
+              "Old html: " +
+              origText +
+              " New html: Hello <b>world!</b> (index: " +
+              i +
+              ")"
+            );
+          });
+        });
+      });
+
+      //   Set Attributes - attr()
+      $(document).ready(function () {
+        $("#but7").click(function () {
+          $("#w3s7").attr({
+            href: "https://www.w3schools.com/jquery/",
+            title: "W3Schools jQuery Tutorial",
+          });
+        });
+      });
+
+        // append() Method
+        $(document).ready(function () {
+        $("#btn1g").click(function () {
+          $("#gg").append(" <b>Appended text</b>.");
+        });
+
+        $("#btn2g").click(function () {
+          $("#olg").append("<li>Appended item</li>");
+        });
+      });
+
+      //   jQuery prepend() Method
+      $(document).ready(function () {
+        $("#btn4g").click(function () {
+          $("#kg").prepend("<b>Prepended text</b>. ");
+        });
+        $("#btn5g").click(function () {
+          $("#ol5g").prepend("<li>Prepended item</li>");
+        });
+      });
+
+      // jQuery remove() Method
+$(document).ready(function(){
+  $("#button1b").click(function(){
+    $("#div1b").remove();
+  });
+});
+
+// jQuery empty() Method
+$(document).ready(function(){
+  $("#lab").click(function(){
+    $(".allb").empty();
+  });
+});
+
+// Filter the Elements to be Removed
+$(document).ready(function(){
+  $("#gob").click(function(){
+    $(".testb").remove(".testb");
+  });
+});
+
+    // jQuery addClass() Method
+    $(document).ready(function () {
+        $("#lasom").click(function () {
+          $("#pemam, #dorjim, .passangm").addClass("blue");
+          $("#tashim").addClass("important");
+        });
+      });
+
+      // removeClass() Method
+      $(document).ready(function () {
+        $("#okm").click(function () {
+          $(".pinkm").removeClass("pink");
+        });
+      });
+
+      // toggleClass() Method
+      $(document).ready(function () {
+        $("#bm").click(function () {
+          $(".kom").toggleClass("blue");
+        });
+      });
+
+// css() Method
+      // Return a CSS Property
+      $(document).ready(function () {
+        $("#wf").click(function () {
+          alert("Background color = " + $(".opf").css("background-color"));
+        });
+      });
+
+      // Set a CSS Property
+      $(document).ready(function () {
+        $("#lif").click(function () {
+          $(".yaf").css("background-color", "yellow");
+        });
+      });
+
+      // Set Multiple CSS Properties
+      $(document).ready(function () {
+        $("#butf").click(function () {
+          $(".paef").css({ "background-color": "yellow", "font-size": "200%" });
+        });
+      });
+
+      // Dimensions
+      // jQuery width() and height() Methods
+      $(document).ready(function () {
+        $("#button1v").click(function () {
+          var txt = "";
+          txt += "Width of div: " + $("#div1v").width() + "</br>";
+          txt += "Height of div: " + $("#div1v").height();
+          $("#div1v").html(txt);
+        });
+      });
+
+      //   jQuery innerWidth() and innerHeight() Methods
+      $(document).ready(function () {
+        $("#buv").click(function () {
+          var txt = "";
+          txt += "Width of div: " + $("#div2v").width() + "</br>";
+          txt += "Height of div: " + $("#div2v").height() + "</br>";
+          txt += "Inner width of div: " + $("#div2v").innerWidth() + "</br>";
+          txt += "Inner height of div: " + $("#div2v").innerHeight();
+          $("#div2v").html(txt);
+        });
+      });
+
+      // jQuery outerWidth() and outerHeight() Methods
+      $(document).ready(function () {
+        $("#tashv").click(function () {
+          var txt = "";
+          txt += "Width of div: " + $("#div3v").width() + "</br>";
+          txt += "Height of div: " + $("#div3v").height() + "</br>";
+          txt += "Outer width of div: " + $("#div3v").outerWidth() + "</br>";
+          txt += "Outer height of div: " + $("#div3v").outerHeight();
+          $("#div3v").html(txt);
+        });
+      });
+
+      // jQuery More width() and height()
+      $(document).ready(function () {
+        $("#popv").click(function () {
+          var txt = "";
+          txt += "Document width/height: " + $(document).width();
+          txt += "x" + $(document).height() + "\n";
+          txt += "Window width/height: " + $(window).width();
+          txt += "x" + $(window).height();
+          alert(txt);
+        });
+      });
+
+    </script>
+
+    <style>
+body{
+  background-color: #c3c3c3;
+}
+
+      #panel1,
+      #flip1 {
+        padding: 5px;
+        text-align: center;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+      }
+
+      #panel1 {
+        padding: 50px;
+        display: none;
+      }
+
+      /* jQuery slideUp() Method */
+      #laso,
+      #las11 {
+        padding: 5px;
+        text-align: center;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+      }
+
+      #laso111 {
+        padding: 50px;
+      }
+
+      /* jQuery slideToggle() Method */
+      #no,
+      #yes {
+        padding: 5px;
+        text-align: center;
+        background-color: #e5eecc;
+        border: solid 1px #c3c3c3;
+      }
+
+      #no {
+        padding: 50px;
+        display: none;
+      }
+
+/* Stop Animations */
+      /* jQuery stop() Method  */
+      #panel0,
+      #flip0 {
+        padding: 5px;
+        font-size: 18px;
+        text-align: center;
+        background-color: #555;
+        color: white;
+        border: solid 1px #666;
+        border-radius: 3px;
+      }
+
+      #panel0 {
+        padding: 50px;
+        display: none;
+      }
+
+       /* jQuery remove() Method */
+    .testb {
+      color: red;
+      font-size: 20px;
+    }
+
+      /* jQuery addClass() Method */
+      .important {
+        font-weight: bold;
+        font-size: xx-large;
+      }
+
+      .bluem {
+        color: blue;
+      }
+
+      /* removeClass() Method */
+      .pinkm {
+        color: blue;
+      }
+
+      /* toggleClass() Method */
+      .bluem {
+        color: blue;
+      }
+
+       /* Dimensions */
+      /* jQuery width() and height() Methods */
+      #div1v {
+        height: 100px;
+        width: 300px;
+        padding: 10px;
+        margin: 3px;
+        border: 1px solid blue;
+        background-color: lightblue;
+      }
+
+      /* jQuery innerWidth() and innerHeight() Methods */
+      #div2v {
+        height: 100px;
+        width: 300px;
+        padding: 10px;
+        margin: 3px;
+        border: 1px solid blue;
+        background-color: lightblue;
+      }
+
+      /* jQuery outerWidth() and outerHeight() Methods */
+      #div3v {
+        height: 100px;
+        width: 300px;
+        padding: 10px;
+        margin: 3px;
+        border: 1px solid blue;
+        background-color: lightblue;
+      }
+
+      
+    </style>
+  </head>
+  <body>
+    <!-- Selectors -->
+    <h2>This is a heading</h2>
+
+    <p id="J">This is a paragraph.</p>
+    <p id="J">This is another paragraph.</p>
+    <button id="l">Click me to hide paragraphs</button><br /><br /><br />
+
+    <!-- Commonly Used jQuery Event Methods -->
+    <!-- click() -->
+    <p class="click">If you click on me, I will disappear.</p>
+    <p class="click">Click me away!</p>
+    <p class="click">Click me too!</p>
+
+    <!-- dblclick() -->
+    <p class="ok">If you double-click on me, I will disappear.</p>
+    <p class="ok">Click me away!</p>
+    <p class="ok">Click me too!</p>
+    <br /><br />
+
+    <!-- mouseenter() -->
+    <p id="p1">Enter this paragraph.</p>
+    <br /><br />
+
+    <!-- mouseleave() -->
+    <p id="p2">This is a paragraph.</p>
+    <br /><br />
+
+    <!-- hover() -->
+    <p id="p3">This is a paragraph.</p>
+    <br /><br />
+
+    <!-- focus() -->
+    Name: <input type="text" name="fullname" /><br />
+    Email: <input type="text" name="email" /><br /><br />
+
+    <!-- blur() -->
+    Name: <input type="text" name="fullname" class="laso" /><br />
+    Email: <input type="text" name="email" class="laso" />
+
+    <!-- The on() Method -->
+    <p class="la">If you click on me, I will disappear.</p>
+    <p class="la">Click me away!</p>
+    <p class="la">Click me too!</p>
+    <br /><br /><br /><br /><br /><br />
+    !-- jQuery hide() and show() -->
+    <p id="mm">If you click on the "Hide" button, I will disappear.</p>
+
+    <button id="hide">Hide</button>
+    <button id="show">Show</button><br /><br /><br />
+
+    <!-- jQuery toggle() -->
+    <button id="jj">Toggle between hiding and showing the paragraphs</button>
+
+    <p class="laso1">This is a paragraph with little content.</p>
+    <p class="laso1">This is another small paragraph.</p>
+
+    <!-- jQuery fadeIn() Method   -->
+    <p>Demonstrate fadeIn() with different parameters.</p>
+
+    <button id="a">Click to fade in boxes</button><br /><br />
+
+    <div
+      id="div1"
+      style="width: 80px; height: 80px; display: none; background-color: red"
+    ></div>
+    <br />
+    <div
+      id="div2"
+      style="width: 80px; height: 80px; display: none; background-color: green"
+    ></div>
+    <br />
+    <div
+      id="div3"
+      style="width: 80px; height: 80px; display: none; background-color: blue"
+    ></div>
+    <br /><br /><br />
+
+    <!-- jQuery fadeOut() Method -->
+    <p>Demonstrate fadeOut() with different parameters.</p>
+
+    <button id="b">Click to fade out boxes</button><br /><br />
+
+    <div id="ok" style="width: 80px; height: 80px; background-color: red"></div>
+    <br />
+    <div
+      id="ook"
+      style="width: 80px; height: 80px; background-color: green"
+    ></div>
+    <br />
+    <div
+      id="oook"
+      style="width: 80px; height: 80px; background-color: blue"
+    ></div>
+    <br /><br />
+
+    <!-- jQuery fadeToggle() Method -->
+    <p>Demonstrate fadeToggle() with different speed parameters.</p>
+
+    <button id="c">Click to fade in/out boxes</button><br /><br />
+
+    <div
+      id="laaaa"
+      style="width: 80px; height: 80px; background-color: red"
+    ></div>
+    <br />
+    <div
+      id="laa"
+      style="width: 80px; height: 80px; background-color: green"
+    ></div>
+    <br />
+    <div
+      id="laaa"
+      style="width: 80px; height: 80px; background-color: blue"
+    ></div>
+    <br /><br />
+
+    <!-- jQuery fadeTo() Method -->
+    <p>Demonstrate fadeTo() with different parameters.</p>
+
+    <button id="d">Click to fade boxes</button><br /><br />
+
+    <div
+      id="123"
+      style="width: 80px; height: 80px; background-color: red"
+    ></div>
+    <br />
+    <div
+      id="1234"
+      style="width: 80px; height: 80px; background-color: green"
+    ></div>
+    <br />
+    <div
+      id="12345"
+      style="width: 80px; height: 80px; background-color: blue"
+    ></div>
+    <br /><br /><br /><br /><br />
+
+    <!-- jQuery slideDown() Method -->
+    <div id="flip1">Click to slide down panel</div>
+    <div id="panel1">Hello world!</div>
+    <br /><br />
+
+    <!-- jQuery slideUp() Method -->
+    <div id="las11">Click to slide up panel</div>
+    <div id="laso111">Hello world!</div>
+    <br /><br />
+
+    <!-- jQuery slideToggle() Method -->
+    <div id="yes">Click to slide the panel down or up</div>
+    <div id="no">Hello world!</div>
+    <br /><br /><br />
+
+    <!-- Stop Animations -->
+    <!-- jQuery stop() Method -->
+    <button id="stop0">Stop sliding</button>
+
+    <div id="flip0">Click to slide down panel</div>
+    <div id="panel0">Hello world!</div><br><br><br><br>
+
+        <!-- Callback Functions -->
+        <button id="f">Hide</button>
+
+        <p id="p0">This is a paragraph with little content.</p><br><br><br>
+
+          <!-- Chaining -->
+    <p id="p18">jQuery is fun!!</p>
+
+    <button id="button8">Click me</button><br><br><br>
+
+<!-- Get Content - text(), html(), and val() -->
+<p id="test3">This is some <b>bold</b> text in a paragraph.</p>
+
+<button id="btn13">Show Text</button>
+<button id="btn23">Show HTML</button><br /><br /><br />
+
+<!-- val() -->
+<p>Name: <input type="text" id="test13" value="KTNamgay" /></p>
+
+<button id="press3">Show Value</button><br /><br /><br /><br />
+
+<!-- Get Attributes - attr() -->
+<p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
+
+<button id="pub3">Show href Value</button><br><br><br>
+
+<!-- Set Content - text(), html(), and val()   -->
+<p id="test17">This is a paragraph.</p>
+<p id="test27">This is another paragraph.</p>
+
+<p>Input field: <input type="text" id="test3" value="KTNamgay" /></p>
+
+<button id="btn17">Set Text</button>
+<button id="btn27">Set HTML</button>
+<button id="btn37">Set Value</button><br /><br /><br />
+
+<!-- A Callback Function for text(), html(), and val() -->
+<p id="test47">This is a <b>bold</b> paragraph.</p>
+<p id="test57">This is another <b>bold</b> paragraph.</p>
+
+<button id="btn47">Show Old/New Text</button>
+<button id="btn57">Show Old/New HTML</button><br /><br /><br />
+
+<!-- Set Attributes - attr() -->
+<p>
+  <a href="https://www.w3schools.com" title="some title" id="w3s7"
+    >W3Schools.com</a
+  >
+</p>
+
+<button id="but7">Change href and title</button>
+
+<p>
+  Mouse over the link to see that the href attribute has changed and a title
+  attribute is set.
+</p><br><br><br><br>
+
+ <!-- append() Method -->
+ <p id="gg">This is a paragraph.</p>
+ <p id="gg">This is another paragraph.</p>
+
+ <ol id="olg">
+   <li>List item 1</li>
+   <li>List item 2</li>
+   <li>List item 3</li>
+ </ol>
+
+ <button id="btn1g">Append text</button>
+ <button id="btn2g">Append list items</button><br /><br /><br /><br />
+
+ <!-- jQuery prepend() Method -->
+ <p id="kg">This is a paragraph.</p>
+ <p id="kg">This is another paragraph.</p>
+
+ <ol id="ol5g">
+   <li>List item 1</li>
+   <li>List item 2</li>
+   <li>List item 3</li>
+ </ol>
+
+ <button id="btn4g">Prepend text</button>
+ <button id="btn5g">Prepend list item</button><br /><br /><br /><br />
+
+    <!-- jQuery remove() Method -->
+    <div id="div1b" style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
+
+      This is some text in the div.
+      <p>This is a paragraph in the div.</p>
+      <p>This is another paragraph in the div.</p>
+      
+      </div>
+      <br>
+      
+      <button id="button1b">Remove div element</button><br><br><br>
+
+      <!-- jQuery empty() Method -->
+
+      <div id="div3b" style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
+
+          <p class="allb">This is some text in the div.</p> 
+          <p class="allb">This is a paragraph in the div.</p>
+          <p class="allb">This is another paragraph in the div.</p>
+          <br><br>
+          <button id="lab">Empty the div element</button>
+
+          <!-- Filter the Elements to be Removed -->
+          <p class="testb">This is a paragraph.</p>
+          <p class="testb">This is another paragraph.</p>
+          <p class="testb">This is another paragraph.</p>
+          
+          <button id="gob">Remove all p elements with class="test"</button><br><br><br><br>
+
+          <!-- jQuery addClass() Method -->
+    <h1 id="pemam">Heading 1</h1>
+    <h2 id="dorjim">Heading 2</h2>
+
+    <p class="passangm">This is a paragraph.</p>
+    <p class="passangm">This is another paragraph.</p>
+
+    <div id="tashim">This is some important text!</div>
+    <br />
+
+    <button id="lasom">Add classes to elements</button><br /><br /><br />
+
+    <!-- removeClass() Method -->
+    <h1 class="pinkm">Heading 1</h1>
+    <h2 class="pinkm">Heading 2</h2>
+
+    <p class="pinkm">This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+
+    <button id="okm">Remove class from elements</button><br /><br /><br />
+
+    <!-- toggleClass() Method -->
+    <h1 class="kom">Heading 1</h1>
+    <h2 class="kom">Heading 2</h2>
+
+    <p class="kom">This is a paragraph.</p>
+    <p class="kom">This is another paragraph.</p>
+
+    <button id="bm">Toggle class</button><br><br><br><br>
+
+    <!-- css() Method -->
+    <!-- Return a CSS Property -->
+    <h2>This is a heading</h2>
+
+    <p style="background-color: #ff0000" class="opf">This is a paragraph.</p>
+    <p style="background-color: #00ff00" class="opf">This is a paragraph.</p>
+    <p style="background-color: #0000ff" class="opf">This is a paragraph.</p>
+
+    <button id="w">Return background-color of p</button><br /><br />
+
+    <!-- Set a CSS Property -->
+    <p style="background-color: #ff0000" class="yaf">This is a paragraph.</p>
+    <p style="background-color: #00ff00" class="yaf">This is a paragraph.</p>
+    <p style="background-color: #0000ff" class="yaf">This is a paragraph.</p>
+
+    <p class="yaf">This is a paragraph.</p>
+
+    <button id="lif">Set background-color of p</button><br /><br /><br />
+
+    <!-- Set Multiple CSS Properties -->
+    <p style="background-color: #ff0000" class="paef">This is a paragraph.</p>
+    <p style="background-color: #00ff00" class="paef">This is a paragraph.</p>
+    <p style="background-color: #0000ff" class="paef">This is a paragraph.</p>
+
+    <p class="paef">This is a paragraph.</p>
+
+    <button id="butf">Set multiple styles for p</button><br><br><br><br>
+
+     <!-- Dimensions -->
+    <!-- jQuery width() and height() Methods -->
+    <div id="div1v"></div>
+    <br />
+
+    <button id="button1v">Display dimensions of div</button>
+
+    <p>width() - returns the width of an element.</p>
+    <p>height() - returns the height of an element.</p>
+    <br /><br /><br />
+
+    <!-- jQuery innerWidth() and innerHeight() Methods -->
+    <div id="div2v"></div>
+    <br />
+
+    <button id="buv">Display dimensions of div</button>
+
+    <p>innerWidth() - returns the width of an element (includes padding).</p>
+    <p>innerHeight() - returns the height of an element (includes padding).</p>
+    <br /><br /><br />
+
+    <!-- jQuery outerWidth() and outerHeight() Methods -->
+    <div id="div3v"></div>
+    <br />
+
+    <button id="tashv">Display dimensions of div</button>
+
+    <p>
+      outerWidth() - returns the width of an element (includes padding and
+      border).
+    </p>
+    <p>
+      outerHeight() - returns the height of an element (includes padding and
+      border).
+    </p>
+    <br /><br /><br />
+
+    <!-- jQuery More width() and height() -->
+    <button id="popv">Display dimensions of document and window</button>
+
+  </body>
+  </body>
+</html>
